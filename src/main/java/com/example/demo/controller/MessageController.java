@@ -3,25 +3,15 @@ package com.example.demo.controller;
 import com.example.demo.models.Message;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.messaging.handler.annotation.DestinationVariable;
+import org.springframework.stereotype.Controller;
 
-@RestController
+@Controller
 public class MessageController {
 
-
-    @MessageMapping("/message")
-    @SendTo("/topic/return-to")
-    public Message getContent(@RequestBody Message message) {
-
-//        try {
-//            //processing
-////            Thread.sleep(2000);
-//
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-        return message;
+    @MessageMapping("/message/{roomId}")
+    @SendTo("/topic/{roomId}")
+    public Message getContent(@DestinationVariable String roomId, Message message) {
+        return new Message(message.getName(), message.getContent(), roomId);
     }
-
 }

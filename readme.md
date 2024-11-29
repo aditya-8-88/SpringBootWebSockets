@@ -31,6 +31,10 @@ cd SpringBootWebSockets
 
 3. **Run the application**: Start the Spring Boot server.
 
+## Screenshots
+![Screenshot from 2024-11-29 22-50-47](https://github.com/user-attachments/assets/4d047aac-377e-4630-9752-746f9748b107)
+
+
 ## Testing the Application
 1. Open two tabs in your browser.
 2. Navigate to the chat interface (e.g., http://localhost:9000).
